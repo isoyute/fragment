@@ -1,0 +1,12 @@
+@import 'utilities/variables';
+
+.header {
+    padding: 6pt 16pt;
+    margin: 0 auto;
+    width: $page-width;
+    max-width: $page-max-width;
+
+    h3 {
+        margin: 0;
+    }
+}

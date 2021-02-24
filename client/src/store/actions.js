@@ -1,0 +1,5 @@
+// PAGE ACTIONS
+export const SET_IS_PAGE_LOADING = 'SET_IS_PAGE_LOADING';
+
+// USER ACTIONS
+export const SET_USER = 'SET_USER';

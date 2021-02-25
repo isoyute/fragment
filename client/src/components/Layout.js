@@ -12,7 +12,9 @@ const Layout = ({ children }) => {
         <Loading />
     ) : (
         <Page className={styles.app}>
-            <Header />
+            <Page.Header>
+                <Header />
+            </Page.Header>
             <Page.Content>
                 <Content>{children}</Content>
             </Page.Content>

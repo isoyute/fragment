@@ -6,7 +6,14 @@
     width: $page-width;
     max-width: $page-max-width;
 
-    h3 {
-        margin: 0;
+    .logo {
+        h3 {
+            font-style: italic;
+            margin: 0;
+        }
+    }
+
+    .controls {
+        height: 100%;
     }
 }

@@ -1,17 +1,5 @@
 const isAuthorized = (req, res, next) => {
-    req.user ? next() : res.redirect('/');
+    req.user ? next() : res.redirect(`${process.env.CLIENT_URL}/error/401`);
 };
 
-// A helper function to assert the request ID param is valid
-// and convert it to a number (since it comes as a string by default)
-const getIdParam = (req) => {
-    const id = req.params.id;
-
-    if (/^\d+$/.test(id)) {
-        return Number.parseInt(id, 10);
-    }
-
-    throw new TypeError(`Invalid ':id' param: "${id}"`);
-};
-
-module.exports = { getIdParam, isAuthorized };
+module.exports = { isAuthorized };

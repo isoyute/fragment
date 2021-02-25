@@ -1,9 +1,5 @@
 const Home = () => {
-    return (
-        <p>
-            <a href='http://localhost:9000/auth/github/login'>log in</a>
-        </p>
-    );
+    return <p>Welcome to the home page!</p>;
 };
 
 export default Home;

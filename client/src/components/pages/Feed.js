@@ -1,9 +1,5 @@
 const Feed = () => {
-    return (
-        <p>
-            <a href='http://localhost:9000/auth/github/logout'>log out</a>
-        </p>
-    );
+    return <p>This is the feed of the user.</p>;
 };
 
 export default Feed;

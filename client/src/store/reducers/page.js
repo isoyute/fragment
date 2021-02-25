@@ -1,7 +1,7 @@
 import { SET_IS_PAGE_LOADING } from '../actions';
 
 const initState = {
-    isPageLoading: false,
+    isPageLoading: true,
 };
 
 const reducer = (state = initState, action) => {

@@ -6,7 +6,10 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     logging: false,
 });
 
-const modelDefiners = [require('./models/user.model')];
+const modelDefiners = [
+    require('./models/user.model'),
+    require('./models/post.model'),
+];
 
 // all models are defined according to their files
 for (const modelDefiner of modelDefiners) {

@@ -1,5 +1,12 @@
+import Posts from '../Posts';
+import styles from '../../styles/Feed.module.scss';
+
 const Feed = () => {
-    return <p>This is the feed of the user.</p>;
+    return (
+        <div className={styles.feed}>
+            <Posts />
+        </div>
+    );
 };
 
 export default Feed;

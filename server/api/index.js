@@ -80,7 +80,9 @@ api.use(
 );
 
 // ROUTES
-const dbRoutes = {};
+const dbRoutes = {
+    posts: require('./routes/posts'),
+};
 
 api.use('/auth/github', authRoute);
 

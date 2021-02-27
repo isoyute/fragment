@@ -3,3 +3,6 @@ export const SET_IS_PAGE_LOADING = 'SET_IS_PAGE_LOADING';
 
 // USER ACTIONS
 export const SET_USER = 'SET_USER';
+
+// FEED ACTIONS
+export const SET_FEED_POSTS = 'SET_FEED_POSTS';

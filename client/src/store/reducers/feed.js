@@ -1,15 +1,15 @@
-import { SET_IS_PAGE_LOADING } from '../actions';
+import { SET_FEED_POSTS } from '../actions';
 
 const initState = {
-    isPageLoading: true,
+    posts: [],
 };
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
-        case SET_IS_PAGE_LOADING:
+        case SET_FEED_POSTS:
             return {
                 ...state,
-                isPageLoading: action.isPageLoading,
+                posts: action.posts,
             };
         default:
             return state;

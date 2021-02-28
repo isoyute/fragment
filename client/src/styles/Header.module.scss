@@ -1,19 +1,19 @@
 @import 'utilities/variables';
 
 .header {
-    padding: 6pt 16pt;
-    margin: 0 auto;
-    width: $page-width;
-    max-width: $page-max-width;
+	padding: 6pt 16pt;
+	margin: 0 auto;
+	width: $page-width;
+	max-width: $page-max-width;
 
-    .logo {
-        h3 {
-            font-style: italic;
-            margin: 0;
-        }
-    }
+	.logo {
+		h3 {
+			font-style: italic;
+			margin: 0;
+		}
+	}
 
-    .controls {
-        height: 100%;
-    }
+	.controls {
+		height: 100%;
+	}
 }

@@ -1,24 +1,24 @@
 @import 'utilities/variables';
 
 .post {
-    background-color: $white;
-    border: 1px solid $border-color;
+	background-color: $white;
+	border: 1px solid $border-color;
 
-    &:not(:last-child) {
-        margin-bottom: 60px;
-    }
+	&:not(:last-child) {
+		margin-bottom: 60px;
+	}
 
-    .header {
-        height: 60px;
-        padding: 16px;
-    }
+	.header {
+		height: 60px;
+		padding: 16px;
+	}
 
-    .code {
-        background-color: black;
-        height: 750px;
-    }
+	.code {
+		background-color: lightgray;
+		height: 450px;
+	}
 
-    .description {
-        padding: 16px;
-    }
+	.description {
+		padding: 16px;
+	}
 }

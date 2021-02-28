@@ -1,8 +1,9 @@
 @import 'utilities/variables';
 
 .content {
-    padding: 6pt 16pt;
-    margin: 0 auto;
-    width: $page-width;
-    max-width: $page-max-width;
+	padding: 6pt 16pt;
+	margin: 0 auto;
+	height: 100%;
+	width: $page-width;
+	max-width: $page-max-width;
 }

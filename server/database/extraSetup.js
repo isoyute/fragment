@@ -1,9 +1,8 @@
-const applyExtraSetup = (sequelize) => {
-    // apply any extra setup like adding associations
-    // EXAMPLE:
-    // const { instrument, orchestra } = sequelize.models;
-    // orchestra.hasMany(instrument);
-    // instrument.belongsTo(orchestra);
+const applyExtraSetup = sequelize => {
+	// apply any extra setup like adding associations
+	const { user, post } = sequelize.models;
+	user.hasMany(post, { foreignKey: { allowNull: false } });
+	post.belongsTo(user);
 };
 
 module.exports = { applyExtraSetup };

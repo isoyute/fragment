@@ -8,9 +8,8 @@ import {
 	setPageNotLoadingAction,
 } from '../store/actions/pageActions';
 import axios from 'axios';
-import env from 'react-dotenv';
 
-const server = env.REACT_APP_SERVER_URL;
+const server = process.env.REACT_APP_SERVER_URL;
 const auth = axios.create({ withCredentials: true });
 
 export const fetchUser = () => dispatch => {

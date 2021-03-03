@@ -1,6 +1,5 @@
 import { Popover, Link } from '@geist-ui/react';
 import { User, Settings, LogOut } from '@geist-ui/react-icons';
-import env from 'react-dotenv';
 import styles from '../styles/UserMenu.module.scss';
 
 const UserMenu = () => {
@@ -20,7 +19,7 @@ const UserMenu = () => {
 			</Popover.Item>
 			<Popover.Item line />
 			<Popover.Item>
-				<Link href={`${env.REACT_APP_SERVER_URL}/auth/github/logout`}>
+				<Link href={`${process.env.REACT_APP_SERVER_URL}/auth/github/logout`}>
 					<span className={styles.icon}>
 						<LogOut size={24} />
 					</span>

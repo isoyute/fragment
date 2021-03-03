@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Spinner } from '@geist-ui/react';
+import { Loading } from '@geist-ui/react';
 import { fetchPosts } from '../../api/posts';
 import Posts from '../Posts';
 import styles from '../../styles/Feed.module.scss';
@@ -18,7 +18,9 @@ const Feed = () => {
 	return (
 		<>
 			{isLoading ? (
-				<Spinner size='large' />
+				<div className={styles.feed}>
+					<Loading size='large'>Loading feed</Loading>
+				</div>
 			) : (
 				<div className={styles.feed}>
 					<Posts posts={posts} />

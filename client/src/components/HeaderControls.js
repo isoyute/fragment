@@ -4,7 +4,6 @@ import { Popover, Avatar, Spinner, Link } from '@geist-ui/react';
 import { useSelector } from 'react-redux';
 import NewPost from './NewPost';
 import UserMenu from './UserMenu';
-import env from 'react-dotenv';
 import styles from '../styles/HeaderControls.module.scss';
 
 const HeaderControls = () => {
@@ -31,7 +30,7 @@ const HeaderControls = () => {
 				<>
 					<Link
 						color
-						href={`${env.REACT_APP_SERVER_URL}/auth/github/login`}
+						href={`${process.env.REACT_APP_SERVER_URL}/auth/github/login`}
 						onClick={() => setIsButtonLoading(true)}
 					>
 						{isButtonLoading ? <Spinner /> : <>Login with GitHub</>}

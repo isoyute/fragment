@@ -7,9 +7,8 @@ import {
 	createFeedPostFailureAction,
 } from '../store/actions/feedActions';
 import axios from 'axios';
-import env from 'react-dotenv';
 
-const server = env.REACT_APP_SERVER_URL;
+const server = process.env.REACT_APP_SERVER_URL;
 
 export const fetchPosts = () => dispatch => {
 	dispatch(getFeedPostsRequestAction());

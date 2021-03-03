@@ -1,7 +1,7 @@
 import {
-	getUserRequestAction,
-	getUserSuccessAction,
-	getUserFailureAction,
+	authUserRequestAction,
+	authUserSuccessAction,
+	authUserFailureAction,
 } from '../store/actions/userActions';
 import {
 	setPageIsLoadingAction,
@@ -13,12 +13,12 @@ const server = process.env.REACT_APP_SERVER_URL;
 const auth = axios.create({ withCredentials: true });
 
 export const fetchUser = () => dispatch => {
-	dispatch(getUserRequestAction());
+	dispatch(authUserRequestAction());
 	dispatch(setPageIsLoadingAction());
 
 	auth
 		.get(`${server}/auth/github/user`)
-		.then(response => dispatch(getUserSuccessAction(response.data.user)))
-		.catch(error => dispatch(getUserFailureAction(error.message)))
+		.then(response => dispatch(authUserSuccessAction(response.data.user)))
+		.catch(error => dispatch(authUserFailureAction(error.message)))
 		.finally(() => dispatch(setPageNotLoadingAction()));
 };

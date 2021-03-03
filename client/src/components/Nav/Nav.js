@@ -1,19 +1,22 @@
+import { Link } from 'react-router-dom';
 import { Row, Col } from '@geist-ui/react';
-import HeaderControls from './HeaderControls';
-import styles from '../styles/Header.module.scss';
+import NavButtons from './NavButtons';
+import styles from '../../styles/Nav.module.scss';
 
-const Header = () => {
+const Nav = () => {
 	return (
-		<div className={styles.header}>
+		<div className={styles.nav}>
 			<Row>
 				<Col>
 					<Row className={styles.logo} align='middle' justify='start'>
-						<h3>fragment</h3>
+						<Link to='/'>
+							<h3>fragment</h3>
+						</Link>
 					</Row>
 				</Col>
 				<Col>
 					<Row className={styles.controls} align='middle' justify='end'>
-						<HeaderControls />
+						<NavButtons />
 					</Row>
 				</Col>
 			</Row>
@@ -21,4 +24,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Nav;

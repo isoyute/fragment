@@ -80,11 +80,12 @@ api.use(
 );
 
 // ROUTES
+api.use('/auth/github', authRoute);
+
 const dbRoutes = {
 	posts: require('./routes/posts'),
+	users: require('./routes/users'),
 };
-
-api.use('/auth/github', authRoute);
 
 // async errors not being transmitted correctly workaround
 const makeHandlerAwareOfAsyncErrors = handler => {
@@ -109,6 +110,12 @@ for (const [routeName, routeController] of Object.entries(dbRoutes)) {
 		api.get(
 			`/api/${routeName}/:id`,
 			makeHandlerAwareOfAsyncErrors(routeController.getById)
+		);
+	}
+	if (routeController.getByUsername) {
+		api.get(
+			`/api/${routeName}/:username`,
+			makeHandlerAwareOfAsyncErrors(routeController.getByUsername)
 		);
 	}
 	if (routeController.create) {

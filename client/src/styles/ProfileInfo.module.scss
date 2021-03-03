@@ -1,0 +1,28 @@
+.profile-info {
+	div:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.username h2 {
+		font-size: 28px;
+		line-height: 32px;
+	}
+
+	.numbers {
+		display: flex;
+		flex-flow: row nowrap;
+		font-size: 16px;
+
+		span {
+			font-weight: 700;
+		}
+
+		div:not(:last-child) {
+			margin-right: 40px;
+		}
+	}
+
+	.info h5 {
+		margin: 0;
+	}
+}

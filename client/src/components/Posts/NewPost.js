@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal, Textarea } from '@geist-ui/react';
-import { createPost } from '../api/posts';
+import { createPost } from '../../api/posts';
 
 const NewPost = ({ user, isModalOpen, setIsModalOpen }) => {
 	const [description, setDescription] = useState();

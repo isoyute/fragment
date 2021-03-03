@@ -1,11 +1,12 @@
-import { User, Link } from '@geist-ui/react';
-import styles from '../styles/Post.module.scss';
+import { Link } from 'react-router-dom';
+import { User } from '@geist-ui/react';
+import styles from '../../styles/Post.module.scss';
 
 const Post = ({ user, code, description }) => {
 	return (
 		<article className={styles.post}>
 			<div className={styles.header}>
-				<Link href={user.url}>
+				<Link to={`/p/${user.username}`}>
 					<User src={user.avatar} name={user.username} />
 				</Link>
 			</div>

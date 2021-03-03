@@ -1,7 +1,7 @@
 import {
-	GET_USER_REQUEST,
-	GET_USER_SUCCESS,
-	GET_USER_FAILURE,
+	AUTH_USER_REQUEST,
+	AUTH_USER_SUCCESS,
+	AUTH_USER_FAILURE,
 } from '../actions/userActions';
 
 const initialState = {
@@ -10,17 +10,17 @@ const initialState = {
 	errorMessage: '',
 };
 
-const handleGetUserRequest = () => ({
+const handleAuthUserRequest = () => ({
 	...initialState,
 });
 
-const handleGetUserSuccess = payload => ({
+const handleAuthUserSuccess = payload => ({
 	user: payload,
 	isLoading: false,
 	errorMessage: '',
 });
 
-const handleGetUserFailure = payload => ({
+const handleAuthUserFailure = payload => ({
 	user: null,
 	isLoading: false,
 	errorMessage: payload,
@@ -28,12 +28,12 @@ const handleGetUserFailure = payload => ({
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case GET_USER_REQUEST:
-			return handleGetUserRequest();
-		case GET_USER_SUCCESS:
-			return handleGetUserSuccess(action.payload);
-		case GET_USER_FAILURE:
-			return handleGetUserFailure(action.payload);
+		case AUTH_USER_REQUEST:
+			return handleAuthUserRequest();
+		case AUTH_USER_SUCCESS:
+			return handleAuthUserSuccess(action.payload);
+		case AUTH_USER_FAILURE:
+			return handleAuthUserFailure(action.payload);
 		default:
 			return state;
 	}

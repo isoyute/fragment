@@ -1,3 +1,7 @@
 .feed {
-	height: 100%;
+	height: inherit;
+
+	.empty {
+		text-align: center;
+	}
 }

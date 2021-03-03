@@ -18,5 +18,13 @@
 		background-color: $light-gray;
 		padding-bottom: 0 !important;
 		flex: 1 1 auto;
+
+		.content {
+			padding: 6pt 16pt;
+			margin: 0 auto;
+			height: 100%;
+			width: $page-width;
+			max-width: $page-max-width;
+		}
 	}
 }

@@ -1,9 +1,8 @@
 import { Page } from '@geist-ui/react';
 import { useSelector } from 'react-redux';
-import Header from './Header';
-import Content from './Content';
-import Loading from './pages/Loading';
-import styles from '../styles/Layout.module.scss';
+import Nav from '../Nav/Nav';
+import Loading from './Loading';
+import styles from '../../styles/Layout.module.scss';
 
 const Layout = ({ children }) => {
 	const isPageLoading = useSelector(state => state.page.isLoading);
@@ -15,10 +14,10 @@ const Layout = ({ children }) => {
 			) : (
 				<Page className={styles.app}>
 					<Page.Header>
-						<Header />
+						<Nav />
 					</Page.Header>
 					<Page.Content>
-						<Content>{children}</Content>
+						<div className={styles.content}>{children}</div>
 					</Page.Content>
 				</Page>
 			)}

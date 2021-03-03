@@ -15,6 +15,13 @@ module.exports = sequelize => {
 		name: {
 			type: DataTypes.STRING,
 		},
+		bio: {
+			type: DataTypes.STRING,
+			defaultValue: '',
+			validate: {
+				len: [0, 255],
+			},
+		},
 		url: {
 			type: DataTypes.STRING,
 		},
@@ -23,6 +30,18 @@ module.exports = sequelize => {
 		},
 		email: {
 			type: DataTypes.STRING,
+		},
+		followersCount: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
+		},
+		followingCount: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
+		},
+		postsCount: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
 		},
 	});
 };

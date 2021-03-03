@@ -1,12 +1,16 @@
 @import 'utilities/variables';
 
-.header {
+.nav {
 	padding: 6pt 16pt;
 	margin: 0 auto;
 	width: $page-width;
 	max-width: $page-max-width;
 
 	.logo {
+		a {
+			color: inherit;
+		}
+
 		h3 {
 			font-style: italic;
 			margin: 0;

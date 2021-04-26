@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Popover, Link as OutLink } from '@geist-ui/react';
-import { User, Settings, LogOut } from '@geist-ui/react-icons';
+import { User, Settings } from '@geist-ui/react-icons';
 import styles from '../../styles/UserMenu.module.scss';
 
 const UserMenu = ({ username }) => {
@@ -28,9 +28,6 @@ const UserMenu = ({ username }) => {
 					href={`${process.env.REACT_APP_SERVER_URL}/auth/github/logout`}
 					className={styles.link}
 				>
-					<span className={styles.icon}>
-						<LogOut size={24} />
-					</span>
 					Logout
 				</OutLink>
 			</Popover.Item>

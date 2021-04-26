@@ -98,7 +98,17 @@ const makeHandlerAwareOfAsyncErrors = handler => {
 	};
 };
 
-// defining the standard REST APIs for each route (if they exist).
+// defining route specific endpoints
+api.get(
+	`/api/users/:username`,
+	makeHandlerAwareOfAsyncErrors(dbRoutes['users'].getByUsername)
+);
+api.get(
+	'/api/users/search/:substring',
+	makeHandlerAwareOfAsyncErrors(dbRoutes['users'].getAllByUsernameSubstring)
+);
+
+// defining the standard REST API endpoints for each route (if they exist).
 for (const [routeName, routeController] of Object.entries(dbRoutes)) {
 	if (routeController.getAll) {
 		api.get(
@@ -110,12 +120,6 @@ for (const [routeName, routeController] of Object.entries(dbRoutes)) {
 		api.get(
 			`/api/${routeName}/:id`,
 			makeHandlerAwareOfAsyncErrors(routeController.getById)
-		);
-	}
-	if (routeController.getByUsername) {
-		api.get(
-			`/api/${routeName}/:username`,
-			makeHandlerAwareOfAsyncErrors(routeController.getByUsername)
 		);
 	}
 	if (routeController.create) {

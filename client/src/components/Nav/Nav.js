@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Row, Col } from '@geist-ui/react';
 import NavButtons from './NavButtons';
+import Search from './Search';
 import styles from '../../styles/Nav.module.scss';
 
 const Nav = () => {
@@ -12,6 +13,11 @@ const Nav = () => {
 						<Link to='/'>
 							<h3>fragment</h3>
 						</Link>
+					</Row>
+				</Col>
+				<Col>
+					<Row align='middle' justify='center'>
+						<Search />
 					</Row>
 				</Col>
 				<Col>

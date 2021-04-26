@@ -22,7 +22,7 @@ const NewPost = ({ user, isModalOpen, setIsModalOpen }) => {
 			<Modal.Content>
 				<Textarea
 					width='100%'
-					placeholder='description'
+					placeholder='post description'
 					value={description}
 					onChange={e => setDescription(e.target.value)}
 				/>

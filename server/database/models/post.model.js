@@ -8,6 +8,13 @@ module.exports = sequelize => {
 			type: DataTypes.UUID,
 			defaultValue: UUIDV4,
 		},
+		code: {
+			allowNull: false,
+			type: DataTypes.TEXT,
+			validate: {
+				len: [5, 500],
+			},
+		},
 		description: {
 			allowNull: false,
 			type: DataTypes.STRING,

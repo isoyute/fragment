@@ -156,9 +156,18 @@ router
 					},
 				],
 				where: {
-					username: {
-						[Op.iLike]: `%${req.params.substring}%`,
-					},
+					[Op.or]: [
+						{
+							username: {
+								[Op.iLike]: `%${req.params.substring}%`,
+							},
+						},
+						{
+							name: {
+								[Op.iLike]: `%${req.params.substring}%`,
+							},
+						},
+					],
 				},
 			})
 			.then(users => {

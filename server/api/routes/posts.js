@@ -35,6 +35,12 @@ router
 			});
 		}
 
+		if (!req.body.code) {
+			return res.status(400).send({
+				error: `Bad request: Post code must be provided`,
+			});
+		}
+
 		if (!req.body.description) {
 			return res.status(400).send({
 				error: `Bad request: A post description must be provided`,

@@ -20,11 +20,11 @@ export const fetchPosts = () => dispatch => {
 		.catch(error => dispatch(getFeedPostsRequestFailureAction(error.message)));
 };
 
-export const createPost = (userId, description) => dispatch => {
+export const createPost = (userId, code, description) => dispatch => {
 	dispatch(createFeedPostRequestAction());
 
 	axios
-		.post(`${server}/api/posts`, { userId, description })
+		.post(`${server}/api/posts`, { userId, code, description })
 		.then(response => {
 			if (response.status !== 200) {
 				return dispatch(

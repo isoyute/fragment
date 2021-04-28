@@ -79,11 +79,10 @@ const GetGitHub = ({ repos, setRepos }) => {
 	return (
 		<>
 			<Card type='secondary' shadow className={styles.githubcards}>
-				{/* <Text h2>{repos.name}</Text> */}
-				<Text h3>Description</Text>
-				<Text h4>{repos.description}</Text>
 				<Text h3>Language</Text>
 				<Text h4>{repos.language}</Text>
+				<Text h3>Description</Text>
+				<Text h4>{repos.description}</Text>
 			</Card>
 		</>
 	);

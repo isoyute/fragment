@@ -31,17 +31,5 @@ module.exports = sequelize => {
 		email: {
 			type: DataTypes.STRING,
 		},
-		followersCount: {
-			type: DataTypes.INTEGER,
-			defaultValue: 0,
-		},
-		followingCount: {
-			type: DataTypes.INTEGER,
-			defaultValue: 0,
-		},
-		postsCount: {
-			type: DataTypes.INTEGER,
-			defaultValue: 0,
-		},
 	});
 };

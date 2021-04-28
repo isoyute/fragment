@@ -1,11 +1,19 @@
+@import 'utilities/variables';
+
 .profile-info {
 	div:not(:last-child) {
 		margin-bottom: 20px;
 	}
 
-	.username h2 {
-		font-size: 28px;
-		line-height: 32px;
+	.username {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+
+		h2 {
+			font-size: 28px;
+			line-height: 32px;
+		}
 	}
 
 	.numbers {

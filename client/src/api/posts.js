@@ -9,12 +9,13 @@ import {
 import axios from 'axios';
 
 const server = process.env.REACT_APP_SERVER_URL;
+const auth = axios.create({ withCredentials: true });
 
 export const fetchPosts = () => dispatch => {
 	dispatch(getFeedPostsRequestAction());
 
-	axios
-		.get(`${server}/api/posts`)
+	auth
+		.get(`${server}/api/posts/following`)
 		.then(response => dispatch(getFeedPostsRequestSuccessAction(response.data)))
 		.catch(error => dispatch(getFeedPostsRequestFailureAction(error.message)));
 };
@@ -25,7 +26,7 @@ export const createPost = (userId, description) => dispatch => {
 	axios
 		.post(`${server}/api/posts`, { userId, description })
 		.then(response => {
-			if (response.status !== 201) {
+			if (response.status !== 200) {
 				return dispatch(
 					createFeedPostFailureAction('Post could not be created. Try again!')
 				);

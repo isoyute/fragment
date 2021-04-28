@@ -9,6 +9,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 const modelDefiners = [
 	require('./models/user.model'),
 	require('./models/post.model'),
+	require('./models/userFollowers.model'),
 ];
 
 // all models are defined according to their files

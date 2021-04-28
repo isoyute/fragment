@@ -1,0 +1,15 @@
+@import 'utilities/variables';
+
+div.follow-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $white;
+	border: 1px solid $border-color;
+	margin: 0 15px;
+	padding: 0 30px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}

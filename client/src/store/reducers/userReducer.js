@@ -41,10 +41,12 @@ const handleSearchUsersSuccess = (state, payload) => ({
 	...state,
 	isSearching: false,
 	usersSearchResult: payload,
+	searchErrorMessage: '',
 });
 const handleSearchUsersFailure = (state, payload) => ({
 	...state,
 	isSearching: false,
+	usersSearchResult: [],
 	searchErrorMessage: payload,
 });
 

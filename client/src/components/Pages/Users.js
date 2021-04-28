@@ -7,6 +7,7 @@ import UserResult from '../User/UserResult';
 const Users = ({ location }) => {
 	const dispatch = useDispatch();
 	const results = useSelector(state => state.user.usersSearchResult) || [];
+	const error = useSelector(state => state.user.searchErrorMessage) || '';
 
 	useEffect(() => {
 		const query = qs.parse(location.search, {
@@ -19,7 +20,7 @@ const Users = ({ location }) => {
 		}
 	}, [location.search, dispatch]);
 
-	if (results.length === 0) {
+	if (results.length === 0 || error) {
 		return <div>no users found.</div>;
 	}
 

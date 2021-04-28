@@ -5,7 +5,6 @@ const session = require('express-session');
 const compression = require('compression');
 const GitHubStrategy = require('passport-github2').Strategy;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const authRoute = require('./routes/auth');
 const db = require('../database');
 const User = db.models.user;
 
@@ -33,7 +32,25 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-	User.findOne({ where: { id } })
+	User.findOne({
+		include: [
+			{
+				model: User,
+				as: 'followers',
+				required: false,
+				attributes: ['id'],
+				through: { attributes: [] },
+			},
+			{
+				model: User,
+				as: 'following',
+				required: false,
+				attributes: ['id'],
+				through: { attributes: [] },
+			},
+		],
+		where: { id },
+	})
 		.then(user => done(null, user))
 		.catch(() => done(new Error('failed to deserialize a user.')));
 });
@@ -80,66 +97,8 @@ api.use(
 );
 
 // ROUTES
-api.use('/auth/github', authRoute);
-
-const dbRoutes = {
-	posts: require('./routes/posts'),
-	users: require('./routes/users'),
-};
-
-// async errors not being transmitted correctly workaround
-const makeHandlerAwareOfAsyncErrors = handler => {
-	return async function (req, res, next) {
-		try {
-			await handler(req, res);
-		} catch (error) {
-			next(error);
-		}
-	};
-};
-
-// defining route specific endpoints
-api.get(
-	`/api/users/:username`,
-	makeHandlerAwareOfAsyncErrors(dbRoutes['users'].getByUsername)
-);
-api.get(
-	'/api/users/search/:substring',
-	makeHandlerAwareOfAsyncErrors(dbRoutes['users'].getAllByUsernameSubstring)
-);
-
-// defining the standard REST API endpoints for each route (if they exist).
-for (const [routeName, routeController] of Object.entries(dbRoutes)) {
-	if (routeController.getAll) {
-		api.get(
-			`/api/${routeName}`,
-			makeHandlerAwareOfAsyncErrors(routeController.getAll)
-		);
-	}
-	if (routeController.getById) {
-		api.get(
-			`/api/${routeName}/:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.getById)
-		);
-	}
-	if (routeController.create) {
-		api.post(
-			`/api/${routeName}`,
-			makeHandlerAwareOfAsyncErrors(routeController.create)
-		);
-	}
-	if (routeController.update) {
-		api.put(
-			`/api/${routeName}/:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.update)
-		);
-	}
-	if (routeController.remove) {
-		api.delete(
-			`/api/${routeName}/:id`,
-			makeHandlerAwareOfAsyncErrors(routeController.remove)
-		);
-	}
-}
+api.use('/auth/github', require('./routes/auth'));
+api.use('/api', require('./routes/posts'));
+api.use('/api', require('./routes/users'));
 
 module.exports = api;

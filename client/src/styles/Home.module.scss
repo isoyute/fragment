@@ -1,0 +1,24 @@
+.home {
+	text-align: center;
+	z-index: 5 !important;
+	position: relative;
+	.logo{
+		z-index: 5 !important;
+		position: relative;
+		a {
+			color: inherit;
+		}
+		h1 {
+			margin: 0;
+		}
+	}
+	Button {
+		margin-top:150px;
+	}
+}
+.githubcards{
+	margin-top: 50px !important;
+	text-align: left;
+	background-color: transparentize($color: #00000096, $amount: 0) !important;
+}
+
